@@ -6,7 +6,7 @@
 /*   By: allallem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 19:01:21 by allallem          #+#    #+#             */
-/*   Updated: 2018/02/19 17:17:10 by allallem         ###   ########.fr       */
+/*   Updated: 2018/02/19 17:53:18 by allallem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void		ft_put_in_calcu(t_fdf *p, int x, int color)
 {
-	if (x < 0 || x > 1920 * 1080 * 4 || !(x > p->size_line * p->y1 && x < p->size_line * (p->y1 + 1)))
+	if (x < 0 || x > 1920 * 1080 * 4 ||
+		!(x >= p->size_line * p->y1 && x <= p->size_line * (p->y1 + 1)))
 		return ;
 	p->data[x] = color & 0xFF;
 	p->data[x + 1] = (color >> 8) & 0xFF;
@@ -39,7 +40,7 @@ static void	ft_redirect(t_fdf *p)
 		ft_trace_bottom_left_right(p, 1);
 	else if (p->xdiff < 0 && p->ydiff > 0 && ft_abs(p->xdiff) <= p->ydiff)
 		ft_trace_up_right_left(p, 0);
-	else if (p->xdiff > 0 && p->ydiff > 0 && p->xdiff <= p->ydiff)
+	else if (p->xdiff >= 0 && p->ydiff > 0 && p->xdiff <= p->ydiff)
 		ft_trace_up_right_left(p, 1);
 	else if (p->xdiff == 0 && (p->ydiff < 0 || p->ydiff > 0))
 		ft_trace_baton(p);
@@ -94,8 +95,8 @@ void		ft_print_image(t_fdf *p)
 	int j;
 
 	i = 0;
-	p->xmap = 1920 / p->x;
-	p->ymap = 1080 / p->y;
+	p->xmap = 1820 / p->x;
+	p->ymap = 980 / p->y;
 	while (i < p->y)
 	{
 		j = 0;
@@ -106,5 +107,5 @@ void		ft_print_image(t_fdf *p)
 		}
 		i++;
 	}
-	mlx_put_image_to_window(p->mlx, p->win, p->img, 0, 0);
+	mlx_put_image_to_window(p->mlx, p->win, p->img, 50, 50);
 }

@@ -6,7 +6,7 @@
 /*   By: allallem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/06 04:16:23 by allallem          #+#    #+#             */
-/*   Updated: 2018/02/19 15:51:54 by allallem         ###   ########.fr       */
+/*   Updated: 2018/02/19 17:48:50 by allallem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,18 @@ static int	ft_my_key_event(int key, t_fdf *p)
 	if (key == 126)
 	{
 		mlx_destroy_image(p->mlx, p->img);
-		p->img = mlx_new_image(p->mlx, 1980, 1080);
-		p->data = (unsigned char *)mlx_get_data_addr(p->img, &p->bpp, &p->size_line, &p->endian);
+		p->img = mlx_new_image(p->mlx, 1880, 980);
+		p->data = (unsigned char *)mlx_get_data_addr(p->img,
+		&p->bpp, &p->size_line, &p->endian);
 		p->k += 1;
 		ft_print_image(p);
 	}
 	if (key == 125)
 	{
 		mlx_destroy_image(p->mlx, p->img);
-		p->img = mlx_new_image(p->mlx, 1980, 1080);
-		p->data = (unsigned char *)mlx_get_data_addr(p->img, &p->bpp, &p->size_line, &p->endian);
+		p->img = mlx_new_image(p->mlx, 1880, 980);
+		p->data = (unsigned char *)mlx_get_data_addr(p->img,
+				&p->bpp, &p->size_line, &p->endian);
 		p->k -= 1;
 		ft_print_image(p);
 	}
@@ -66,7 +68,8 @@ static int	ft_get_tab(t_fdf *p)
 		k = 0;
 		while (p->map[i][j])
 		{
-			if ((p->map[i][j] >= 48 && p->map[i][j] <= 57) || p->map[i][j] == '-')
+			if ((p->map[i][j] >= 48 && p->map[i][j] <= 57)
+					|| p->map[i][j] == '-')
 			{
 				p->tab[i][k] = ft_atoi(p->map[i] + j);
 				k++;
@@ -85,7 +88,7 @@ int			main(int argc, char **argv)
 {
 	t_fdf	st;
 	t_fdf	*p;
-	
+
 	if (argc == 2)
 	{
 		p = &st;
@@ -98,7 +101,7 @@ int			main(int argc, char **argv)
 		if (!ft_get_tab(p))
 			return (0);
 		p->mlx = mlx_init();
-		p->img = mlx_new_image(p->mlx, 1920, 1080);
+		p->img = mlx_new_image(p->mlx, 1820, 980);
 		p->data = (unsigned char *)mlx_get_data_addr(p->img, &p->bpp,
 				&p->size_line, &p->endian);
 		p->win = mlx_new_window(p->mlx, 1920, 1080, "fdf");

@@ -6,11 +6,20 @@
 /*   By: allallem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 16:51:40 by allallem          #+#    #+#             */
-/*   Updated: 2018/02/19 17:14:55 by allallem         ###   ########.fr       */
+/*   Updated: 2018/02/19 17:32:03 by allallem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+void		ft_init_seg(t_fdf *p, float *yjump)
+{
+	p->xdiff = ft_abs(p->xdiff);
+	p->ydiff = ft_abs(p->ydiff);
+	(p->xdiff >= p->ydiff) ? *yjump = p->ydiff / p->xdiff : 0;
+	(p->ydiff >= p->xdiff) ? *yjump = p->xdiff / p->ydiff : 0;
+	p->temp = *yjump;
+}
 
 static void	ft_path_number(int i, int *j, int *count, t_fdf *p)
 {

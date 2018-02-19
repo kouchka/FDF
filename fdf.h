@@ -6,7 +6,7 @@
 /*   By: allallem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/06 04:14:36 by allallem          #+#    #+#             */
-/*   Updated: 2018/02/19 16:32:44 by allallem         ###   ########.fr       */
+/*   Updated: 2018/02/19 17:32:28 by allallem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ void				ft_trace_bottom_left_right(t_fdf *p, int i);
 void				ft_trace_up_right_left(t_fdf *p, int i);
 void				ft_put_in_calcu(t_fdf *p, int x, int color);
 void				ft_trace_baton(t_fdf *p);
+void				ft_init_seg(t_fdf *p, float *yjump);
 
 #endif
