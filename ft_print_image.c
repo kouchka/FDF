@@ -6,7 +6,7 @@
 /*   By: allallem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 19:01:21 by allallem          #+#    #+#             */
-/*   Updated: 2018/02/19 17:53:18 by allallem         ###   ########.fr       */
+/*   Updated: 2018/02/19 17:58:28 by allallem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		ft_put_in_calcu(t_fdf *p, int x, int color)
 {
-	if (x < 0 || x > 1920 * 1080 * 4 ||
+	if (x < 0 || x > 1820 * 980 * 4 ||
 		!(x >= p->size_line * p->y1 && x <= p->size_line * (p->y1 + 1)))
 		return ;
 	p->data[x] = color & 0xFF;
