@@ -6,7 +6,7 @@
 /*   By: allallem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/06 04:14:36 by allallem          #+#    #+#             */
-/*   Updated: 2018/02/17 17:42:14 by allallem         ###   ########.fr       */
+/*   Updated: 2018/02/19 16:32:44 by allallem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ typedef struct		s_fdf
 	int				y1;
 	int				y2;
 	int				k;
+	int				limit1;
+	int				limit2;
 	char			*tmp;
 	char			**map;
 	int				**tab;

@@ -6,16 +6,32 @@
 /*   By: allallem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/06 04:16:23 by allallem          #+#    #+#             */
-/*   Updated: 2018/02/16 19:12:54 by allallem         ###   ########.fr       */
+/*   Updated: 2018/02/19 15:51:54 by allallem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static int	ft_my_key_event(int key)
+static int	ft_my_key_event(int key, t_fdf *p)
 {
 	if (key == 53)
 		exit(EXIT_SUCCESS);
+	if (key == 126)
+	{
+		mlx_destroy_image(p->mlx, p->img);
+		p->img = mlx_new_image(p->mlx, 1980, 1080);
+		p->data = (unsigned char *)mlx_get_data_addr(p->img, &p->bpp, &p->size_line, &p->endian);
+		p->k += 1;
+		ft_print_image(p);
+	}
+	if (key == 125)
+	{
+		mlx_destroy_image(p->mlx, p->img);
+		p->img = mlx_new_image(p->mlx, 1980, 1080);
+		p->data = (unsigned char *)mlx_get_data_addr(p->img, &p->bpp, &p->size_line, &p->endian);
+		p->k -= 1;
+		ft_print_image(p);
+	}
 	return (0);
 }
 
@@ -74,6 +90,7 @@ int			main(int argc, char **argv)
 	{
 		p = &st;
 		ft_bzero(p, sizeof(t_fdf));
+		p->k = 4;
 		if (!ft_init_fd(argv[1], p))
 			return (0);
 		if (!ft_verif_tab(p))

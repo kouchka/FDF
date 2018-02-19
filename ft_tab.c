@@ -6,7 +6,7 @@
 /*   By: allallem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 16:51:40 by allallem          #+#    #+#             */
-/*   Updated: 2018/02/16 16:52:28 by allallem         ###   ########.fr       */
+/*   Updated: 2018/02/19 17:14:55 by allallem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	ft_path_number(int i, int *j, int *count, t_fdf *p)
 {
 	if (p->map[i][*j] >= 48 && p->map[i][*j] <= 57)
 	{
-		while (p->map[i][*j] >= 48 && p->map[i][*j] <= 57)
+		while (p->map[i][*j] != ' ' && p->map[i][*j])
 			*j = *j + 1;
 		*count = *count + 1;
 	}
