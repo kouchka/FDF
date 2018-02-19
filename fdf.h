@@ -37,6 +37,8 @@ typedef struct		s_fdf
 	int				y1;
 	int				y2;
 	int				k;
+	int				play;
+	int				iso;
 	int				limit1;
 	int				limit2;
 	char			*tmp;
@@ -54,5 +56,8 @@ void				ft_trace_up_right_left(t_fdf *p, int i);
 void				ft_put_in_calcu(t_fdf *p, int x, int color);
 void				ft_trace_baton(t_fdf *p);
 void				ft_init_seg(t_fdf *p, float *yjump);
+int					ft_game(t_fdf *p);
+void				ft_redirect(t_fdf *p);
+void				ft_iso(t_fdf *p);
 
 #endif

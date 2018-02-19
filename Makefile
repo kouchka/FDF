@@ -12,7 +12,7 @@
 
 NAME	=	fdf
 
-SRCS	=	main.c ft_tab.c ft_init_fd.c ft_print_image.c ft_trace_seg.c
+SRCS	=	main.c ft_tab.c ft_init_fd.c ft_print_image.c ft_trace_seg.c ft_game.c ft_iso.c
 
 OBJS	=	$(SRCS:.c=.o)
 

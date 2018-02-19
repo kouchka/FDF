@@ -22,7 +22,7 @@ void		ft_put_in_calcu(t_fdf *p, int x, int color)
 	p->data[x + 2] = (color >> 16) & 0xFF;
 }
 
-static void	ft_redirect(t_fdf *p)
+void		ft_redirect(t_fdf *p)
 {
 	if (p->xdiff > 0 && p->ydiff >= 0 && p->xdiff >= p->ydiff)
 		ft_trace_up_left_right(p, 1);

@@ -34,6 +34,14 @@ static int	ft_my_key_event(int key, t_fdf *p)
 		p->k -= 1;
 		ft_print_image(p);
 	}
+	if (key == 34)
+		p->iso = 1;
+	if ((key == 125 || key == 126 || (key == 123 && p->play == -1) || (key == 124 && p->play == 1)) && (p->play == -1 || p->play == 1))
+		p->play = 0;
+	else if (key == 123)
+		p->play = -1;
+	else if (key == 124)
+		p->play = 1;
 	return (0);
 }
 
@@ -106,6 +114,7 @@ int			main(int argc, char **argv)
 				&p->size_line, &p->endian);
 		p->win = mlx_new_window(p->mlx, 1920, 1080, "fdf");
 		ft_print_image(p);
+		mlx_loop_hook(p->mlx, ft_game, p);
 		mlx_key_hook(p->win, ft_my_key_event, p);
 		mlx_loop(p->mlx);
 	}
